@@ -1,0 +1,9 @@
+# Load environment first
+[ -f ~/.bash_configs/bash_env ] && source ~/.bash_configs/bash_env
+
+# Then aliases and functions
+[ -f ~/.bash_configs/bash_aliases ] && source ~/.bash_configs/bash_aliases
+[ -f ~/.bash_configs/bash_functions ] && source ~/.bash_configs/bash_functions
+
+# Then visuals (prompt, colors)
+[ -f ~/.bash_configs/bash_visuals ] && source ~/.bash_configs/bash_visuals

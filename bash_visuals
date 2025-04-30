@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# ------------------------------------------------------------ COLOR DEFINITIONS
+RESET_COLOR="\[\e[0m\]"
+COLOR_BASE="\[\e[0;37m\]"
+COLOR_PATH="\[\e[1;38;5;123m\]" #bold teal
+COLOR_GIT="\[\e[1;38;5;68m\]" #bold blue
+COLOR_INDICATOR="\[\e[1;38;5;28m\]" #bold green
+COLOR_BRANCH="\[\e[38;5;203m\]"  #red/orange
+COLOR_PROMPT="\[\e[0;37m\]"
+
+# ------------------------------------------------------------ GIT BRANCH DISPLAY
+git_prompt() {
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local branch
+    branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    echo " ${COLOR_GIT}git:(${COLOR_BRANCH}${branch}${COLOR_GIT})"
+  fi
+}
+
+# ------------------------------------------------------------ PROMPT SETUP
+set_prompt() {
+  PS1="${COLOR_INDICATOR}-> ${COLOR_PATH}\w$(git_prompt)
+${COLOR_PROMPT}\$ ${RESET_COLOR}"
+  PS2="${COLOR_PROMPT}> ${RESET_COLOR}"
+}
+
+# ------------------------------------------------------------ INITIALIZE PROMPT
+PROMPT_COMMAND=set_prompt
