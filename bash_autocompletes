@@ -1,0 +1,7 @@
+# Git autocompletion
+if [ -f ~/.bash_configs/git-completion.bash ]; then
+  source ~/.bash_configs/git-completion.bash
+fi
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'

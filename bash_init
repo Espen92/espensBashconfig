@@ -7,3 +7,6 @@
 
 # Then visuals (prompt, colors)
 [ -f ~/.bash_configs/bash_visuals ] && source ~/.bash_configs/bash_visuals
+
+# And autocompletes
+[ -f ~/.bash_configs/bash_autocompletes ] && source ~/.bash_configs/bash_autocompletes
